@@ -1,3 +1,7 @@
+/backend/db.json
+/backend/json-server.json
+/frontend/src/config.ts
+
 # Logs
 logs
 *.log
