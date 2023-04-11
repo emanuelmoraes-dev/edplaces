@@ -2,7 +2,7 @@
   "name": "edplaces-backend",
   "version": "0.0.1",
   "scripts": {
-    "start": "json-server --watch db.json --middlewares ./clipboard.js --port 3888"
+    "start": "json-server --watch db.json --middlewares ./clipboard.js --port 3888 --host 0.0.0.0"
   },
   "license": "MIT",
   "dependencies": {
