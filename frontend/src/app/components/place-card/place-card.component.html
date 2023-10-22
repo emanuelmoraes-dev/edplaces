@@ -1,18 +1,18 @@
 <div class="place-card">
     <mat-card class="card mat-elevation-z3">
-        <mat-card-title class="card-title">#{{ (place$ | async)?.route?.length ?? '' }} {{ (place$ | async)?.destination ?? loadingText }}</mat-card-title>
+        <mat-card-title class="card-title">#{{ place?.route?.length ?? '' }} {{ place?.destination ?? loadingText }}</mat-card-title>
         <!-- <mat-form-field class="card-form-field">
             <input type="number" matInput [ngModel]="id" (ngModelChange)="onIdChanged($event)">
         </mat-form-field> -->
         <mat-selection-list [multiple]="false">
             <div class="card-route">
                 <mat-list-option
-                    *ngFor="let point of ((place$ | async)?.route ?? []); let index = index"
+                    *ngFor="let point of (place?.route ?? []); let index = index"
                     [attr.data-index]="index"
                     [value]="point"
-                    [selected]="index === ((place$ | async)?.position ?? -1)"
-                    [appFocus]="index === ((place$ | async)?.position ?? -1)"
-                    (click)="onPointChanged(point, index)"
+                    [selected]="index === (place?.position ?? -1)"
+                    [appFocus]="index === (place?.position ?? -1)"
+                    (click)="onPointChanged(index)"
                 >
                     #{{ index + 1 }} {{ point }}
                 </mat-list-option>

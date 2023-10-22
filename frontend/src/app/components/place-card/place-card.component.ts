@@ -10,32 +10,33 @@ import { PlacesApiService } from 'src/app/services/api/places-api.service';
   styleUrls: ['./place-card.component.less']
 })
 export class PlaceCardComponent implements OnInit {
-  readonly loadingText = 'Loading...';
-  place$!: Observable<IPlaceModel>;
-  private place!: IPlaceModel;
+  readonly loadingText = 'Loading...'
+  place?: IPlaceModel
 
   constructor(protected api: PlacesApiService) { }
 
   ngOnInit (): void {
-    this.place$ = this.api.get(defaultId);
-    this.place$.pipe(take(1)).subscribe({
+    this.api.get(defaultId).pipe(take(1)).subscribe({
       next: place => {
-        this.place = place;
+        this.place = place
+        this.onPointChanged()
       }
-    });
+    })
   }
 
-  onPointChanged (_point: string, index: number): void {
-    if (this.place.position !== index) {
-      this.place.position = index;
+  onPointChanged (index?: number): void {
+    if (this.place && (index === undefined || this.place.position !== index)) {
+      if (index !== undefined) {
+        this.place.position = index;
+      }
       this.api.put(defaultId, this.place).pipe(take(1)).subscribe({
-        next: _place => {
+        next: _ => {
           console.log('atualizado!')
         },
         error: err => {
           console.error(err)
         }
-      });
+      })
     }
   }
 
