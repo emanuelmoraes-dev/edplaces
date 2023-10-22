@@ -1,0 +1,8 @@
+{
+    "places": [{
+        "id": 1,
+        "destination": "Colonia",
+        "position": 0,
+        "route": ["Sol", "Colonia"]
+    }]
+}
