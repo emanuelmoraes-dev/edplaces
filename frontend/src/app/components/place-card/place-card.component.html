@@ -14,7 +14,15 @@
                     [appFocus]="index === (place?.position ?? -1)"
                     (click)="onPointChanged(index)"
                 >
-                    #{{ index + 1 }} {{ point }}
+                    <div class="place-content">
+                        <div class="place-content-name">
+                            #{{ index + 1 }} {{ point['System Name'] }}
+                        </div>
+                        <div class="place-content-icons">
+                            <mat-icon *ngIf="point?.['Neutron Star']?.toUpperCase() === 'YES'">stars</mat-icon>
+                            <mat-icon *ngIf="point?.['Refuel']?.toUpperCase() === 'YES'">battery_charging_full</mat-icon>
+                        </div>
+                    </div>
                 </mat-list-option>
             </div>
         </mat-selection-list>
