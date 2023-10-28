@@ -16,19 +16,26 @@ module.exports = async (req, res, next) => {
             req.url.match(/^\/places\/\d+/) &&
             req.header('Content-Type') === 'application/json'
 
-        if (!putingPlace)
+        if (!putingPlace) {
             return next()
+        }
         
         const route = req.body?.route
         const position = req.body?.position
 
-        if (!route || typeof position !== 'number')
+        if (!route || typeof position !== 'number') {
             return next()
+        }
 
         point = route[position]
 
-        if (!point)
+        if (typeof point !== 'string') {
+            point = point['System Name']
+        }
+
+        if (!point) {
             return next()
+        }
 
         await exec(`echo|set /p="${point}" | clip`)
 
