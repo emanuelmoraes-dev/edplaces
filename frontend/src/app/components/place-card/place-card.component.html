@@ -11,10 +11,9 @@
                     [attr.data-index]="index"
                     [value]="point"
                     [selected]="index === (place?.position ?? -1)"
-                    [appFocus]="index === (place?.position ?? -1)"
                     (click)="onPointChanged(index)"
                 >
-                    <div class="place-content">
+                    <div class="place-content" tabindex="0" [appFocus]="index === (place?.position ?? -1)">
                         <div class="place-content-name">
                             #{{ index + 1 }} {{ point['System Name'] }}
                         </div>
