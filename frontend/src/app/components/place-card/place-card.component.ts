@@ -1,9 +1,9 @@
-import { defaultId } from './../../../config';
-import { Observable, take } from 'rxjs';
-import { IPlaceModel } from './../../data/model/place.model';
-import { Component, OnInit } from '@angular/core';
-import { PlacesApiService } from 'src/app/services/api/places-api.service';
-import { toModel } from 'src/app/data/mapper/place-mapper';
+import {take} from 'rxjs';
+import {IPlaceModel} from 'src/app/data/model/place.model';
+import {Component, OnInit} from '@angular/core';
+import {PlacesApiService} from 'src/app/services/api/places-api.service';
+import {toModel} from 'src/app/data/mapper/place-mapper';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-place-card',
@@ -17,7 +17,7 @@ export class PlaceCardComponent implements OnInit {
   constructor(protected api: PlacesApiService) { }
 
   ngOnInit (): void {
-    this.api.get(defaultId).pipe(take(1)).subscribe({
+    this.api.get(environment.defaultId).pipe(take(1)).subscribe({
       next: place => {
         this.place = toModel(place)
         this.onPointChanged()
@@ -32,7 +32,7 @@ export class PlaceCardComponent implements OnInit {
       if (index !== undefined) {
         this.place.position = index;
       }
-      this.api.put(defaultId, this.place).pipe(take(1)).subscribe({
+      this.api.put(environment.defaultId, this.place).pipe(take(1)).subscribe({
         next: _ => {
           console.log('atualizado!')
         },

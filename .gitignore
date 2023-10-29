@@ -1,6 +1,6 @@
 /backend/db.json
 /backend/json-server.json
-/frontend/src/config.ts
+/frontend/src/environments/environment.prod.ts
 
 # Logs
 logs

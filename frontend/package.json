@@ -5,8 +5,8 @@
     "ng": "ng",
     "dev": "ng serve",
     "dev:p": "ng serve --host 0.0.0.0",
-    "start": "ng serve --watch false",
-    "start:p": "ng serve --host 0.0.0.0 --watch false",
+    "start": "ng serve --watch false --configuration production",
+    "start:p": "ng serve --host 0.0.0.0 --watch false --configuration production",
     "build": "ng build",
     "build:w": "ng build --watch --configuration development"
   },
