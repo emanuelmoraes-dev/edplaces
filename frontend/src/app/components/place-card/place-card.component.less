@@ -1,3 +1,15 @@
+@keyframes neutron-star-rotate {
+    0% {
+        transform: rotateZ(-15deg);
+    }
+    50% {
+        transform: rotateZ(15deg);
+    }
+    100% {
+        transform: rotateZ(-15deg);
+    }
+}
+
 .place-card {
     width: 21.5rem;
 
@@ -31,6 +43,14 @@
 
             .place-content-name {
                 flex: 1;
+            }
+
+            .neutron-star {
+                transform: rotateZ(-15deg);
+            }
+
+            .neutron-star-animation {
+                animation: neutron-star-rotate 2s linear infinite;
             }
         }
     }

@@ -18,8 +18,17 @@
                             #{{ index + 1 }} {{ point['System Name'] }}
                         </div>
                         <div class="place-content-icons">
-                            <mat-icon *ngIf="point?.['Neutron Star']?.toUpperCase() === 'YES'">stars</mat-icon>
-                            <mat-icon *ngIf="point?.['Refuel']?.toUpperCase() === 'YES'">battery_charging_full</mat-icon>
+                            <mat-icon class="neutron-star" [class.neutron-star-animation]="index === (place?.position ?? -1)" *ngIf="point?.['Neutron Star']?.toUpperCase() === 'YES'">
+                                remove
+                            </mat-icon>
+                            <mat-icon class="refuel" *ngIf="point?.['Refuel']?.toUpperCase() === 'YES'">
+                                <ng-container *ngIf="index === (place?.position ?? -1)" else chargingFixedIcon>
+                                    {{ chargingAnimationIcon }}
+                                </ng-container>
+                                <ng-container #chargingFixedIcon>
+                                    battery_charging_full
+                                </ng-container>
+                            </mat-icon>
                         </div>
                     </div>
                 </mat-list-option>
