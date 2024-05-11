@@ -1,5 +1,5 @@
 import {Subscription, take, timer} from 'rxjs';
-import {IPlaceModel} from 'src/app/data/model/place.model';
+import {IPlaceModel, IPoint} from 'src/app/data/model/place.model';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PlacesApiService} from 'src/app/services/api/places-api.service';
 import {toModel} from 'src/app/data/mapper/place-mapper';
@@ -38,6 +38,23 @@ export class PlaceCardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.chargingIconSub.unsubscribe()
+  }
+
+  getPointInfo(point: IPoint): string {
+    const info: string[] = []
+    info.push(point['System Name'])
+
+    if (point['Body Name'] && point['Body Name'].startsWith(info[0])) {
+      info[0] = point['Body Name']
+    } else if (point['Body Name']) {
+      info[0] += ' | ' + point['Body Name']
+    }
+
+    if (point['Landmark Subtype']) {
+      info.push(point['Landmark Subtype'])
+    }
+
+    return info.join('\n')
   }
 
   onPointChanged (index?: number): void {

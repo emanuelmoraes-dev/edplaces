@@ -1,5 +1,7 @@
 export type IPoint = {
     'System Name': string,
+    'Body Name'?: string,
+    'Landmark Subtype'?: string,
     'Distance'?: string,
     'Distance Remaining'?: string,
     'Fuel Left'?: string,

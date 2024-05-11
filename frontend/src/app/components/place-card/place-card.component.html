@@ -15,7 +15,7 @@
                 >
                     <div class="place-content" tabindex="0" [appFocus]="index === (place?.position ?? -1)">
                         <div class="place-content-name">
-                            #{{ index + 1 }} {{ point['System Name'] }}
+                            <pre>#{{ index + 1 }} {{ getPointInfo(point) }}</pre>
                         </div>
                         <div class="place-content-icons">
                             <mat-icon class="neutron-star" [class.neutron-star-animation]="index === (place?.position ?? -1)" *ngIf="point?.['Neutron Star']?.toUpperCase() === 'YES'">
