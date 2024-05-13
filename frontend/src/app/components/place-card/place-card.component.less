@@ -11,7 +11,8 @@
 }
 
 .place-card {
-    width: 21.5rem;
+    // width: 21.5rem;
+    width: 25rem;
 
     .card-title {
         display: inline-block;
@@ -51,6 +52,23 @@
 
             .neutron-star-animation {
                 animation: neutron-star-rotate 2s linear infinite;
+            }
+
+            .place-content-icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                align-content: stretch;
+
+                .jumps {
+                    display: flex;
+                    flex-direction: row;
+
+                    .jumps-icon {
+                        transform: scale(.7) translateY(-0.2rem);
+                    }
+                }
             }
         }
     }

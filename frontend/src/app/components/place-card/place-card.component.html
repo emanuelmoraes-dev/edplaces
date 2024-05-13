@@ -21,7 +21,7 @@
                             <mat-icon class="neutron-star" [class.neutron-star-animation]="index === (place?.position ?? -1)" *ngIf="point?.['Neutron Star']?.toUpperCase() === 'YES'">
                                 remove
                             </mat-icon>
-                            <mat-icon class="refuel" *ngIf="point?.['Refuel']?.toUpperCase() === 'YES'">
+                            <mat-icon class="refuel-icon" *ngIf="point?.['Refuel']?.toUpperCase() === 'YES'">
                                 <ng-container *ngIf="index === (place?.position ?? -1)" else chargingFixedIcon>
                                     {{ chargingAnimationIcon }}
                                 </ng-container>
@@ -29,6 +29,14 @@
                                     battery_charging_full
                                 </ng-container>
                             </mat-icon>
+                            <span class="jumps" *ngIf="point?.['Jumps'] as jumps">
+                                <mat-icon class="jumps-icon">
+                                    rocket_launch
+                                </mat-icon>
+                                <span class="jumps-value">
+                                    {{jumps}}
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </mat-list-option>

@@ -40,21 +40,22 @@ export class PlaceCardComponent implements OnInit, OnDestroy {
     this.chargingIconSub.unsubscribe()
   }
 
+  private getLocationName(point: IPoint): string {
+    const systemName = point['System Name']
+    const bodyName = point['Body Name']
+    if (bodyName && bodyName.startsWith(systemName)) {
+      const body = bodyName.substring(systemName.length).trim()
+      return systemName + '\n' + '[' + body + ']'
+    } else if (bodyName) {
+      return systemName + '\n' + '[' + bodyName + ']'
+    }
+    return systemName
+  }
+
   getPointInfo(point: IPoint): string {
-    const info: string[] = []
-    info.push(point['System Name'])
-
-    if (point['Body Name'] && point['Body Name'].startsWith(info[0])) {
-      info[0] = point['Body Name']
-    } else if (point['Body Name']) {
-      info[0] += ' | ' + point['Body Name']
-    }
-
-    if (point['Landmark Subtype']) {
-      info.push(point['Landmark Subtype'])
-    }
-
-    return info.join('\n')
+    const locationName = this.getLocationName(point)
+    const landmarkSubtype = point['Landmark Subtype']
+    return [locationName, landmarkSubtype].filter(v => v).join(' | ')
   }
 
   onPointChanged (index?: number): void {
