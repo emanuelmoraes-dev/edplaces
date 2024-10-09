@@ -13,7 +13,7 @@
                     [selected]="index === (place?.position ?? -1)"
                     (click)="onPointChanged(index)"
                 >
-                    <div class="place-content" tabindex="0" [appFocus]="index === (place?.position ?? -1)">
+                    <div class="place-content" [class.stop]="point?.['Stop']?.toUpperCase() === 'YES'" tabindex="0" [appFocus]="index === (place?.position ?? -1)">
                         <div class="place-content-name">
                             <pre>#{{ index + 1 }} {{ getPointInfo(point) }}</pre>
                         </div>

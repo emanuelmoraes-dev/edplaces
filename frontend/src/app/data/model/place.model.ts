@@ -8,7 +8,8 @@ export type IPoint = {
     'Fuel Used'?: string,
     'Refuel'?: string,
     'Neutron Star'?: string,
-    'Jumps'?: number
+    'Jumps'?: number,
+    'Stop'?: string
 }
 
 export interface IPlaceModel {
