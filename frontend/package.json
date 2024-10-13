@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "build-env": "node scripts/build-env.mjs",
+    "start": "ng serve --watch false --configuration local",
+    "start:p": "ng serve --host 0.0.0.0 --watch false --configuration local",
     "dev": "ng serve",
     "dev:p": "ng serve --host 0.0.0.0",
-    "start": "ng serve --watch false --configuration production",
-    "start:p": "ng serve --host 0.0.0.0 --watch false --configuration production",
     "build": "ng build",
     "build:w": "ng build --watch --configuration development"
   },
