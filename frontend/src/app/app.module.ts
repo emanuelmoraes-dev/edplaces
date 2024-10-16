@@ -14,12 +14,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {AppComponent} from './app.component';
 import {PlaceCardComponent} from './components/place-card/place-card.component';
 import {FocusDirective} from './directives/focus.directive';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaceCardComponent,
-    FocusDirective
+    FocusDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
