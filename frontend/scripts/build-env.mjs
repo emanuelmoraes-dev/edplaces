@@ -31,5 +31,5 @@ const envJson = {
 const envContent = `export const environment = ${JSON.stringify(envJson, null, 2)}\n`
 
 writeFile(filepath, envContent)
-    .then(() => console.log(filepath, 'generated!'))
+    .then(() => console.log(filepath, 'generated with ip', ip))
     .catch(err => console.error(err))
