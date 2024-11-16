@@ -6,7 +6,7 @@ function getLocalIP() {
   const interfaces = networkInterfaces()
   for (let iface in interfaces) {
     for (let alias of interfaces[iface]) {
-      if (alias.family === 'IPv4' && !alias.internal) {
+      if (alias.family === 'IPv4' && !alias.internal && !alias.mac.startsWith('0')) {
         return alias.address
       }
     }
