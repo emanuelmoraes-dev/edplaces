@@ -2,6 +2,9 @@
 /backend/json-server.json
 /frontend/src/environments/environment.prod.ts
 
+# vscode workspace
+*.code-workspace
+
 # Logs
 logs
 *.log
